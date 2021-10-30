@@ -66,4 +66,8 @@ public class Casa
         }
         return false;
     }
+    public String toString()
+    {
+        return "Casa{" + "Nume='" + _nume + '\'' +  ", Chirie=" +_chirie + ", Descriere=" + _descriere +'}';
+    }
 }

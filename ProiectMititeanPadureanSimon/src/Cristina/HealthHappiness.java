@@ -76,4 +76,8 @@ public class HealthHappiness
         }
         return false;
     }
+    public String toString()
+    {
+        return "HealthHappiness{" + "Procent='" + _procentHh + '\'' +  ", Activitate=" + _activitate + ", Descriere=" + _descriere + "Pret= " + _pret+'}';
+    }
 }

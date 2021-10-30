@@ -58,5 +58,9 @@ public class Studii
         }
         return false;
     }
+    public String toString()
+    {
+        return "Studii{" + "Pret='" + _pret + '\'' +  ", Procent=" + _procentHh + ", Descriere=" + _descriere +'}';
+    }
 
 }

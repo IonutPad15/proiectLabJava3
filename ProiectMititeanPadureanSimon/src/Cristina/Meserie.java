@@ -74,6 +74,22 @@ public class Meserie
     {
         salariu=_salariu;
     }
+    public boolean equals(Object o)
+    {
+        if(o instanceof Casa)
+        {
+            Meserie c = (Meserie) o;
+            if(c._casa.equals(this._casa)&& c._studii.equals(this._studii ) && c._procentHh==this._procentHh && c._descriere.equals(this._descriere) && c._nume.equals(this._nume) && c._salariu==this._salariu)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public String toString()
+    {
+        return "Meserie{" + "Nume='" + _nume + '\'' +  ", Procent=" + _procentHh + ", Descriere=" + _descriere + "Salariu= " + _salariu+'}';
+    }
 
 
 }
