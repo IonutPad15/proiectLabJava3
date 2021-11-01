@@ -9,6 +9,7 @@ public class StartGame extends JFrame implements ActionListener
 {
     MyPanel panel;
     JButton myButton =new JButton("Start");
+    JButton myButton2 =new JButton("Continue");
     public StartGame()
     {
         panel=new MyPanel();
@@ -19,6 +20,11 @@ public class StartGame extends JFrame implements ActionListener
         myButton.addActionListener(this);
         myButton.setBackground(Color.pink);
         this.add(myButton);
+        myButton2.setBounds(650,400,200,40);
+        myButton2.setFocusable(false);
+        myButton2.addActionListener(this);
+        myButton2.setBackground(Color.pink);
+        this.add(myButton2);
         this.add(panel);
         this.pack();
         this.setLocationRelativeTo(null);
@@ -36,9 +42,19 @@ public class StartGame extends JFrame implements ActionListener
     {
         if(e.getSource()==myButton)
         {
-            this.dispose();
-            Login login=new Login();
+            int answer=JOptionPane.showConfirmDialog(null,"Daca selectezi aceasta varianta ,tot prograsul va fi sters","esti sigur?",JOptionPane.YES_NO_OPTION);
 
+            if(answer==0)
+            {
+                this.dispose();
+                Login login = new Login();
+            }
+
+        }
+        if(e.getSource()==myButton2)
+        {
+                this.dispose();
+                Login login = new Login();
         }
 
     }
