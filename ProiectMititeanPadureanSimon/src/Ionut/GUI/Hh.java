@@ -1,5 +1,7 @@
 package Ionut.GUI;
 
+import Cristina.gui.Casagu;
+import Cristina.gui.Studiigu;
 import Ionut.classes.CitireFisier;
 import Ionut.classes.LifeSimulator;
 import Cristina.*;
@@ -181,26 +183,31 @@ public class Hh extends CitireFisier {
     {
         Meseriigui meseriigui = Meseriigui.getInstance();
         MeniuPrincipal mp = MeniuPrincipal.getInstance();
-        //CasaGUI casagui = CasaGUI.getInstance();
+        Casagu casagui = Casagu.getInstance();
+        Studiigu studiigui = Studiigu.getInstance();
         JLabel labelhhMeserii = meseriigui.getLabelHh();
         JLabel labelhhMp = mp.getLabelHh();
-        //JLabel labelhhCasa = casagui.getLabelHh();
+        JLabel labelhhCasa = casagui.getLabelHh();
+        JLabel labelhhStudii = studiigui.getLabelHh();
         int hhtemp = Integer.parseInt(labelHh.getText());
         hhtemp += procent;
         if(hhtemp > 100) hhtemp = 100;
         labelHh.setText(hhtemp+"");
         labelhhMeserii.setText(hhtemp+"");
         labelhhMp.setText(hhtemp+"");
-        //labelhhCasa.setText(hhtemp+"");
+        labelhhCasa.setText(hhtemp+"");
+        labelhhStudii.setText(hhtemp+"");
         JLabel labelbaniMeserii = meseriigui.getLabelBani();
         JLabel labelbaniPp = mp.getLabelBani();
-        //JLabel labelbaniCasa = casagui.getLabelBani();
+        JLabel labelbaniCasa = casagui.getLabelBani();
+        JLabel labelbaniStudii = studiigui.getLabelBani();
         scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HH.txt",hhtemp,"succes","eroare");
         int bani = Integer.parseInt(labelbaniPp.getText());
         bani -= _hh[index].getPret();
         labelbaniPp.setText("" + bani);
         labelbaniMeserii.setText("" + bani);
-        //labelbaniCasa.setText("" + bani);
+        labelbaniCasa.setText("" + bani);
+        labelbaniStudii.setText("" + bani);
         labelBani.setText("" + bani);
         scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
     }

@@ -27,6 +27,8 @@ public class Meseriigui extends CitireFisier {
     private JFrame jFrame;
     private LifeSimulator ls = LifeSimulator.getInstance();
     private Meserie[] meserii = ls.getMeserii();
+    private Casa[] casa = ls.getCase();
+    private Studii [] studii = ls.getStudii();
     private MeniuPrincipal mp = MeniuPrincipal.getInstance();
     int index = citireFisierInt("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii","succes","eroare");
     private static Meseriigui _instance;
@@ -63,9 +65,7 @@ public class Meseriigui extends CitireFisier {
         butonActivare.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                index++;
-                scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii",index,"succes","eroare");
-                setTextLabels();
+                activareButon();
             }
         });
         butonInapoi.addActionListener(new ActionListener() {
@@ -115,5 +115,24 @@ public class Meseriigui extends CitireFisier {
     public JLabel getLabelHh()
     {
         return labelHh;
+    }
+    private void activareButon()
+    {
+        int procentHh = Integer.parseInt(mp.getLabelHh().getText());
+        int indexstudii = citireFisierInt("ProiectMititeanPadureanSimon/src/Ionut/resources/Studii","succes","eroare");
+        int indexcasa = citireFisierInt("ProiectMititeanPadureanSimon/src/Ionut/resources/Home","succes","eroare");
+        if(procentHh >= meserii[index+1].getProcentHh() && indexstudii>= meserii[index+1].getindexStudii() && indexcasa >=meserii[index+1].getindexCasa())
+        {
+            index++;
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii",index,"succes","eroare");
+            setTextLabels();
+        }
+        else
+        {
+            String s = "Nu te poti angaja momentan aici!\n Procentul de H&H trebuie sa fie cel putin " +
+                    meserii[index+1].getProcentHh() + "\n Trebuie sa locuiesti macar in " + casa[meserii[index+1].getindexCasa()].getNume()+
+                    "\nSi sa ai macar studiile " + meserii[index+1].getindexStudii();
+            JOptionPane.showMessageDialog(null,s,"Atentie",JOptionPane.WARNING_MESSAGE);
+        }
     }
 }

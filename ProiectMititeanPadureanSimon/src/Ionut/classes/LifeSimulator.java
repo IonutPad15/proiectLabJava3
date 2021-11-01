@@ -66,11 +66,11 @@ public class LifeSimulator {
     private static void setMeserii()
     {
         _meserii = new Meserie[5];
-        _meserii[0] = new Meserie("Vanzator",_casa[0],_studii[0],"Esti angajat ca vanzator la Kaufland.\n Nu e chiar ce visai, dar pune painea\n pe masa pentru inceput", 1200);
-        _meserii[1] = new Meserie("Tester",_casa[0],_studii[1],20,"Lucrezi ca tester la o firma de it.\nNu e chiar de vis, dar macar lucrezi in domeniu",1800);
-        _meserii[2] = new Meserie("FrontEndDev",_casa[1],_studii[2],45, "E timpul in sfarsit sa programezi.\n Vei putea creea site-uri si aplicatii android", 3000);
-        _meserii[3] = new Meserie("BackEndDev",_casa[2], _studii[3], 65, "Acum ai ocazia sa intrii in miezul programarii.\n Practic vei fi motivul pentru care functioneaza un calculator",4500);
-        _meserii[4] = new Meserie("FullStackDev",_casa[3],_studii[4],80,"Orice proiect ti se cere, tu nu il vei refuza.\n Esti pregatit pentru orice.",8000);
+        _meserii[0] = new Meserie("Vanzator",0,0,"Esti angajat ca vanzator la Kaufland.\n Nu e chiar ce visai, dar pune painea\n pe masa pentru inceput", 1200);
+        _meserii[1] = new Meserie("Tester",0,1 ,20,"Lucrezi ca tester la o firma de it.\nNu e chiar de vis, dar macar lucrezi in domeniu",1800);
+        _meserii[2] = new Meserie("FrontEndDev",1,2,45, "E timpul in sfarsit sa programezi.\n Vei putea creea site-uri si aplicatii android", 3000);
+        _meserii[3] = new Meserie("BackEndDev",2, 3, 65, "Acum ai ocazia sa intrii in miezul programarii.\n Practic vei fi motivul pentru care functioneaza un calculator",4500);
+        _meserii[4] = new Meserie("FullStackDev",3,4,80,"Orice proiect ti se cere, tu nu il vei refuza.\n Esti pregatit pentru orice.",8000);
     }
     public Meserie[] getMeserii()
     {

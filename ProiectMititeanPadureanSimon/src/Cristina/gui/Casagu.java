@@ -1,11 +1,11 @@
 package Cristina.gui;
 
+import Cristina.Casa;
 import Ionut.GUI.Hh;
 import Ionut.GUI.MeniuPrincipal;
 import Ionut.GUI.Meseriigui;
 import Ionut.classes.CitireFisier;
 import Ionut.classes.LifeSimulator;
-import Cristina.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class CasaGUI extends CitireFisier{
+public class Casagu extends CitireFisier {
     private JLabel labeltitlu1;
     private JLabel labeltext1;
     private JButton buton1;
@@ -52,18 +52,18 @@ public class CasaGUI extends CitireFisier{
     private JFrame jFrame;
     private LifeSimulator ls = LifeSimulator.getInstance();
     private MeniuPrincipal mp = MeniuPrincipal.getInstance();
-    private static CasaGUI _instance;
+    private static Casagu _instance;
     private Casa[] casa=ls.getCase();
     private int index;
     DateTimeFormatter formatter;
     LocalDate ld ;
-    private CasaGUI()
+    private Casagu()
     {
         prepareFrame();
     }
-    public static CasaGUI getInstance()
+    public static Casagu getInstance()
     {
-        if(_instance == null) _instance = new CasaGUI();
+        if(_instance == null) _instance = new Casagu();
         return _instance;
     }
     private void prepareFrame()

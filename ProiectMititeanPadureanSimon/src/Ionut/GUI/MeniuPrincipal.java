@@ -1,9 +1,10 @@
 package Ionut.GUI;
 
+import Cristina.gui.Casagu;
+import Cristina.gui.Studiigu;
 import Ionut.Threads.*;
 import Ionut.classes.CitireFisier;
 import Ionut.classes.LifeSimulator;
-import Cristina.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -106,15 +107,24 @@ public class MeniuPrincipal extends CitireFisier {
                 h.getjFrame().setVisible(true);
             }
         });
-        /*butonCasa.addActionListener(new ActionListener() {
+        butonCasa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 jFrame.setVisible(false);
-                CasaGUI c = CasaGUI.getInstance();
+                Casagu c = Casagu.getInstance();
                 //SwingUtilities.invokeLater(m);
                 c.getjFrame().setVisible(true);
             }
-        });*/
+        });
+        butonStudii.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                jFrame.setVisible(false);
+                Studiigu s = Studiigu.getInstance();
+                //SwingUtilities.invokeLater(m);
+                s.getjFrame().setVisible(true);
+            }
+        });
     }
     public JFrame getjFrame()
     {
@@ -126,6 +136,16 @@ public class MeniuPrincipal extends CitireFisier {
     }
 
     public static void main(String[] args) {
+        MeniuPrincipal mp = MeniuPrincipal.getInstance();
+        mp.getjFrame().setVisible(true);
+        Thread1 r1 = new Thread1();
+        Thread t1 = new Thread(r1);
+        ThreadMinus r2 = new ThreadMinus();
+        Thread t2 = new Thread(r2);
+        t1.start();
+        t2.start();
+    }
+    public void start() {
         MeniuPrincipal mp = MeniuPrincipal.getInstance();
         mp.getjFrame().setVisible(true);
         Thread1 r1 = new Thread1();

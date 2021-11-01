@@ -1,5 +1,7 @@
 package Ionut.Threads;
 
+import Cristina.gui.Casagu;
+import Cristina.gui.Studiigu;
 import Ionut.GUI.Hh;
 import Ionut.GUI.MeniuPrincipal;
 import Ionut.GUI.Meseriigui;
@@ -17,9 +19,10 @@ public class ThreadMinus extends CitireFisier implements Runnable{
     private Hh hh;
     private Meseriigui meseriigui;
     private JLabel datalabelpp;
-    private JLabel banilabelpp,  banilabelMeserii, banilabelhh, banilabelCasa;
-    private JLabel hhlabelMeserii, hhlabelMp, hhlabelCasa, hhlabelHh;
-    //private CasaGUI casagui;
+    private JLabel banilabelpp,  banilabelMeserii, banilabelhh, banilabelCasa, banilabelStudii;
+    private JLabel hhlabelMeserii, hhlabelMp, hhlabelCasa, hhlabelHh, hhlabelStudii;
+    private Casagu casagui;
+    private Studiigu studiigui;
     private String s ;
     private DateTimeFormatter formatter;
     private LocalDate ld ;
@@ -31,7 +34,8 @@ public class ThreadMinus extends CitireFisier implements Runnable{
     public ThreadMinus()
     {
         meseriigui = Meseriigui.getInstance();
-        //casagui= CasaGUI.getInstance();
+        casagui= Casagu.getInstance();
+        studiigui = Studiigu.getInstance();
         ls= LifeSimulator.getInstance();
         casa = ls.getCase();
         indexcasa = citireFisierInt("ProiectMititeanPadureanSimon/src/Ionut/resources/Home","succes","eroare");
@@ -40,14 +44,16 @@ public class ThreadMinus extends CitireFisier implements Runnable{
         hh = Hh.getInstance();
         datalabelpp = mp.getLabelData();
         banilabelpp = mp.getLabelBani();
-        //banilabelCasa = casagui.getLabelBani();
+        banilabelCasa = casagui.getLabelBani();
+        banilabelStudii = studiigui.getLabelBani();
         banilabelMeserii = meseriigui.getLabelBani();
         banilabelhh = hh.getLabelBani();
         s = datalabelpp.getText();
         formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         ld = LocalDate.parse(s, formatter);
         bani = Integer.parseInt(banilabelpp.getText());
-        //hhlabelCasa = casagui.getLabelHh();
+        hhlabelCasa = casagui.getLabelHh();
+        hhlabelStudii = studiigui.getLabelHh();
         hhlabelHh = hh.getLabelHh();
         hhlabelMp = mp.getLabelHh();
         hhlabelMeserii = meseriigui.getLabelHh();
@@ -58,7 +64,7 @@ public class ThreadMinus extends CitireFisier implements Runnable{
 
         while(true)
         {
-            //indexcasa = casagui.getIndex();
+            indexcasa = casagui.getIndex();
             formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             bani = Integer.parseInt(banilabelpp.getText());
             ld = LocalDate.parse(datalabelpp.getText(), formatter);
@@ -71,14 +77,15 @@ public class ThreadMinus extends CitireFisier implements Runnable{
             {
                 indexhh++;
             }
-            /*if(isPayTime(ld)) {
+            if(isPayTime(ld)) {
                 bani -= casa[indexcasa].getChirie();
                 banilabelpp.setText("" + bani);
                 banilabelMeserii.setText("" + bani);
                 banilabelhh.setText("" + bani);
                 banilabelCasa.setText("" + bani);
+                banilabelStudii.setText("" + bani);
                 scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
-            }*/
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -93,6 +100,7 @@ public class ThreadMinus extends CitireFisier implements Runnable{
         hhlabelMp.setText(hhtemp+"");
         hhlabelHh.setText(hhtemp+"");
         hhlabelCasa.setText(hhtemp+"");
+        hhlabelStudii.setText(hhtemp+"");
         hhlabelMeserii.setText(hhtemp+"");
         scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HH.txt",hhtemp,"succes","eroare");
     }
