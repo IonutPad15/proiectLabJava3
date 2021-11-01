@@ -204,11 +204,42 @@ public class Hh extends CitireFisier {
         scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HH.txt",hhtemp,"succes","eroare");
         int bani = Integer.parseInt(labelbaniPp.getText());
         bani -= _hh[index].getPret();
-        labelbaniPp.setText("" + bani);
-        labelbaniMeserii.setText("" + bani);
-        labelbaniCasa.setText("" + bani);
-        labelbaniStudii.setText("" + bani);
-        labelBani.setText("" + bani);
-        scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
+        if(bani <0)
+        {
+            JOptionPane.showMessageDialog(null,"Ai dat faliment! Ai noroc, propietarul garsonierei te primeste inapoi","Atentie!",JOptionPane.WARNING_MESSAGE);
+            bani = 1000;
+            labelbaniPp.setText("" + bani);
+            labelbaniMeserii.setText("" + bani);
+            labelbaniCasa.setText("" + bani);
+            labelBani.setText("" + bani);
+            labelbaniStudii.setText("" + bani);
+            JButton buton1casa,buton2casa,buton3casa,buton4casa,buton5casa;
+            buton1casa=casagui.getButon1();
+            buton2casa = casagui.getButon2();
+            buton3casa = casagui.getButon3();
+            buton4casa = casagui.getButon4();
+            buton5casa = casagui.getButon5();
+            buton1casa.setEnabled(false);
+            buton1casa.setText("Activ");
+            buton2casa.setEnabled(true);
+            buton3casa.setEnabled(true);
+            buton4casa.setEnabled(true);
+            buton5casa.setEnabled(true);
+            buton2casa.setText("Activare");
+            buton3casa.setText("Activare");
+            buton4casa.setText("Activare");
+            buton5casa.setText("Activare");
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home", 0, "succes", "eroare");
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
+        }
+        else
+        {
+            labelbaniPp.setText("" + bani);
+            labelbaniMeserii.setText("" + bani);
+            labelbaniCasa.setText("" + bani);
+            labelBani.setText("" + bani);
+            labelbaniStudii.setText("" + bani);
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
+        }
     }
 }

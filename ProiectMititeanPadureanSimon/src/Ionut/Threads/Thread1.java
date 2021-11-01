@@ -61,6 +61,7 @@ public class Thread1 extends CitireFisier implements Runnable{
         {
             indexmeserie = meserii.getIndex();
             if(isPayTime(ld)) {
+                bani = Integer.parseInt(banilabelpp.getText());
                 bani += m[indexmeserie].getSalariu();
                 banilabelpp.setText("" + bani);
                 banilabelmeserii.setText("" + bani);

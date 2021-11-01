@@ -197,23 +197,28 @@ public class Studiigu extends CitireFisier {
         int procentHh=Integer.parseInt(labelHh.getText());
         if(procentHh>=studii[index+1].getProcentHh())
         {
+            int bani= Integer.parseInt(mp.getLabelBani().getText());
+            bani-=studii[index+1].getPret();
+            if(bani<0)
+            {
+                JOptionPane.showMessageDialog(null,"Nu ai destui bani!","Atentie!",JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
             index++;
             System.out.println(index);
             scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Studii", index, "Succes", "Eroare");
-            int bani= Integer.parseInt(mp.getLabelBani().getText());
-            bani-=studii[index].getPret();
             JLabel banilabelmp=mp.getLabelBani();
-            Casagu c=  Casagu.getInstance();
-            JLabel banilabelcasa= c.getLabelBani();
+            Casagu casagui=  Casagu.getInstance();
+            JLabel banilabelcasa= casagui.getLabelBani();
             Meseriigui meserii=Meseriigui.getInstance();
             JLabel banilabelmeserii=meserii.getLabelBani();
             Hh hh= Hh.getInstance();
             JLabel banilabelhh= hh.getLabelBani();
-            banilabelmp.setText(bani+"");
-            banilabelcasa.setText(bani+"");
-            banilabelmeserii.setText(bani+"");
-            banilabelhh.setText(bani+"");
-            labelBani.setText(bani+"");
+            banilabelmp.setText(bani + "");
+            banilabelcasa.setText(bani + "");
+            banilabelmeserii.setText(bani + "");
+            banilabelhh.setText(bani + "");
+            labelBani.setText(bani + "");
             scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
             return true;
         }

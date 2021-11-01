@@ -84,6 +84,7 @@ public class Login extends JFrame implements ActionListener
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii",0,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Studii",0,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Nume",s,"succes","eroare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",0,"succes","eroare");
         MeniuPrincipal.start();
     }
     @Override

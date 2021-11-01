@@ -104,10 +104,11 @@ public class Casagu extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 index = 0;
                 scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",index,"succes","eroare");
-                plataAvans(index);
-                ld = LocalDate.parse(labelData.getText(), formatter);
-                scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld)+"","succes","eroare");
-                enablebutoane(index);
+                if(plataAvans(index) == true) {
+                    ld = LocalDate.parse(labelData.getText(), formatter);
+                    scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData", formatter.format(ld) + "", "succes", "eroare");
+                    enablebutoane(index);
+                }
             }
         });
         buton2.addActionListener(new ActionListener() {
@@ -115,10 +116,11 @@ public class Casagu extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 index = 1;
                 scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",index,"succes","eroare");
-                plataAvans(index);
-                ld = LocalDate.parse(labelData.getText(), formatter);
-                scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld)+"","succes","eroare");
-                enablebutoane(index);
+                if(plataAvans(index) == true) {
+                    ld = LocalDate.parse(labelData.getText(), formatter);
+                    scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData", formatter.format(ld) + "", "succes", "eroare");
+                    enablebutoane(index);
+                }
             }
         });
         buton3.addActionListener(new ActionListener() {
@@ -126,10 +128,11 @@ public class Casagu extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 index = 2;
                 scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",index,"succes","eroare");
-                plataAvans(index);
-                ld = LocalDate.parse(labelData.getText(), formatter);
-                scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld)+"","succes","eroare");
-                enablebutoane(index);
+                if(plataAvans(index) == true) {
+                    ld = LocalDate.parse(labelData.getText(), formatter);
+                    scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData", formatter.format(ld) + "", "succes", "eroare");
+                    enablebutoane(index);
+                }
             }
         });
         buton4.addActionListener(new ActionListener() {
@@ -137,10 +140,11 @@ public class Casagu extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 index = 3;
                 scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",index,"succes","eroare");
-                plataAvans(index);
-                ld = LocalDate.parse(labelData.getText(), formatter);
-                scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld)+"","succes","eroare");
-                enablebutoane(index);
+                if(plataAvans(index) == true) {
+                    ld = LocalDate.parse(labelData.getText(), formatter);
+                    scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData", formatter.format(ld) + "", "succes", "eroare");
+                    enablebutoane(index);
+                }
             }
         });
         buton5.addActionListener(new ActionListener() {
@@ -148,10 +152,11 @@ public class Casagu extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 index = 4;
                 scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",index,"succes","eroare");
-                plataAvans(index);
-                ld = LocalDate.parse(labelData.getText(), formatter);
-                scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld)+"","succes","eroare");
-                enablebutoane(index);
+                if(plataAvans(index) == true) {
+                    ld = LocalDate.parse(labelData.getText(), formatter);
+                    scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData", formatter.format(ld) + "", "succes", "eroare");
+                    enablebutoane(index);
+                }
             }
         });
     }
@@ -266,24 +271,73 @@ public class Casagu extends CitireFisier {
             buton2.setText("Activare");
         }
     }
-    private void plataAvans(int index)
+    private boolean plataAvans(int index)
     {
         Meseriigui meseriigui = Meseriigui.getInstance();
         MeniuPrincipal mp = MeniuPrincipal.getInstance();
+        Studiigu studiigu = Studiigu.getInstance();
         Hh hh = Hh.getInstance();
         JLabel labelbaniMeserii = meseriigui.getLabelBani();
         JLabel labelbaniPp = mp.getLabelBani();
         JLabel labelbaniHh = hh.getLabelBani();
+        JLabel labelbaniStudii = studiigu.getLabelBani();
         int bani = Integer.parseInt(labelbaniPp.getText());
         bani -= casa[index].getChirie();
-        labelbaniPp.setText("" + bani);
-        labelbaniMeserii.setText("" + bani);
-        labelbaniHh.setText("" + bani);
-        labelBani.setText("" + bani);
-        scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
+        if(bani <0)
+        {
+            JOptionPane.showMessageDialog(null,"Ai dat faliment! Ai noroc, propietarul garsonierei te primeste inapoi","Atentie!",JOptionPane.WARNING_MESSAGE);
+            bani = 1000;
+            labelbaniPp.setText("" + bani);
+            labelbaniMeserii.setText("" + bani);
+            labelbaniHh.setText("" + bani);
+            labelBani.setText("" + bani);
+            labelbaniStudii.setText("" + bani);
+            buton1.setEnabled(false);
+            buton1.setText("Activ");
+            buton2.setEnabled(true);
+            buton3.setEnabled(true);
+            buton4.setEnabled(true);
+            buton5.setEnabled(true);
+            buton2.setText("Activare");
+            buton3.setText("Activare");
+            buton4.setText("Activare");
+            buton5.setText("Activare");
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home", 0, "succes", "eroare");
+            return false;
+        }
+        else {
+            labelbaniPp.setText("" + bani);
+            labelbaniMeserii.setText("" + bani);
+            labelbaniHh.setText("" + bani);
+            labelBani.setText("" + bani);
+            labelbaniStudii.setText("" + bani);
+            scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
+            return true;
+        }
     }
     public int getIndex()
     {
         return index;
+    }
+    public JButton getButon1()
+    {
+        return buton1;
+    }
+    public JButton getButon2()
+    {
+        return buton2;
+    }
+    public JButton getButon3()
+    {
+        return buton3;
+    }
+    public JButton getButon4()
+    {
+        return buton4;
+    }
+    public JButton getButon5()
+    {
+        return buton5;
     }
 }
