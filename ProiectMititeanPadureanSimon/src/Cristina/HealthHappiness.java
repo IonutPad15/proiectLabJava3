@@ -50,19 +50,19 @@ public class HealthHappiness
     }
     public void setProcent(int procent)
     {
-        procent=_procentHh;
+        _procentHh=procent;
     }
     public void setPret(int pret)
     {
-        pret=_pret;
+        _pret=pret;
     }
     public void setActivitate(String activitate)
     {
-        activitate=_activitate;
+        _activitate=activitate;
     }
     public void setDescriere(String descriere)
     {
-        descriere=_descriere;
+        _descriere=descriere;
     }
     public boolean equals(Object o)
     {

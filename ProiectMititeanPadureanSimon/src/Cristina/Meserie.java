@@ -2,37 +2,37 @@ package Cristina;
 
 public class Meserie
 {
-    private Casa _casa;
-    private Studii _studii;
+    private int _indexCasa ;
+    private int _indexStudii;
     private int _procentHh;
     private String _descriere;
     private String _nume;
     private int _salariu;
-    public Meserie(String nume, Casa casa, Studii studii,int procentHH,String descriere, int salariu)
+    public Meserie(String nume, int _indexCasa,int _indexStudii,int procentHH,String descriere, int salariu)
     {
         _nume = nume;
-        _casa = casa;
-        _studii = studii;
+        this._indexCasa=_indexCasa;
+        this._indexStudii = _indexStudii;
         _descriere = descriere;
         _procentHh = procentHH;
         _salariu = salariu;
     }
-    public Meserie(String nume,Casa casa, Studii studii,String descriere, int salariu)
+    public Meserie(String nume,int _indexCasa, int _indexStudii,String descriere, int salariu)
     {
         _nume = nume;
-        _casa = casa;
-        _studii = studii;
+        this._indexCasa=_indexCasa;
+        this._indexStudii=_indexStudii;
         _descriere = descriere;
         _procentHh = 0;
         _salariu = salariu;
     }
-    public Casa getCasa()
+    public int  getindexCasa()
     {
-        return _casa;
+        return _indexCasa;
     }
-    public Studii getStudii()
+    public int  getindexStudii()
     {
-        return _studii;
+        return _indexStudii;
     }
     public int getProcentHh()
     {
@@ -50,36 +50,36 @@ public class Meserie
     {
         return _salariu;
     }
-    public void setCasa(Casa casa)
+    public void setCasa(int casa)
     {
-        casa=_casa;
+        _indexCasa=casa;
     }
-    public void setStudii(Studii studii)
+    public void setStudii(int studii)
     {
-        studii=_studii;
+        _indexStudii=studii;
     }
     public void setProcent(int procent)
     {
-        procent=_procentHh;
+        _procentHh=procent;
     }
     public void setDescriere(String descriere)
     {
-        descriere=_descriere;
+        _descriere=descriere;
     }
     public void setNume(String nume)
     {
-        nume=_nume;
+        _nume=nume;
     }
     public void setSalariu(int salariu)
     {
-        salariu=_salariu;
+        _salariu=salariu;
     }
     public boolean equals(Object o)
     {
         if(o instanceof Casa)
         {
             Meserie c = (Meserie) o;
-            if(c._casa.equals(this._casa)&& c._studii.equals(this._studii ) && c._procentHh==this._procentHh && c._descriere.equals(this._descriere) && c._nume.equals(this._nume) && c._salariu==this._salariu)
+            if(c._indexCasa==this._indexCasa && c._indexStudii==this._indexStudii && c._procentHh==this._procentHh && c._descriere.equals(this._descriere) && c._nume.equals(this._nume) && c._salariu==this._salariu)
             {
                 return true;
             }
