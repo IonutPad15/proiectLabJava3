@@ -127,7 +127,7 @@ public class ThreadMinus extends CitireFisier implements Runnable{
     private void setProcentHh()
     {
         int hhtemp = Integer.parseInt(hhlabelMp.getText());
-        hhtemp -= 100;
+        hhtemp -= 6;
         if(hhtemp < 0)
         {
             Meserie[] meseries = ls.getMeserii();
