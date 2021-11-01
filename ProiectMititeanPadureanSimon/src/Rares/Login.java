@@ -4,21 +4,25 @@ import java.awt.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.Vector;
 import javax.swing.*;
+import Ionut.classes.ScriereFisier;
 
 public class Login extends JFrame implements ActionListener
 {
     MyPanel2 panell;
     JButton myButton =new JButton("START");
-    JButton myButton2 =new JButton("New Game");
     JTextField textField= new JTextField();
-
+    JTextField textFieldnume= new JTextField();
     public Login()
     {
         panell=new MyPanel2();
-        textField.setBounds(900,500,500,170);
+        textField.setBounds(750,500,500,170);
         textField.setPreferredSize(new Dimension(250,40));
         textField.setFont(new Font("Consolas",Font.PLAIN,35));
         textField.setText("Introduceti numele: ");
@@ -55,23 +59,39 @@ public class Login extends JFrame implements ActionListener
         //frame.setResizable(false);
         //f.add(new JButton("press me!"));
         this.setVisible(true);
+        String s = textField.getText();
+        System.out.println(s);
 
     }
     public static int pretScanduraCumparare=5;
     public static int pretScanduraVanzare=10;
+    private void newgame()
+    {
+        ScriereFisier sc = new ScriereFisier();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate ld = LocalDate.now();
+        String s = textField.getText();
+        System.out.println(s);
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Data",formatter.format(ld) +"","succes","eorare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld) +"","succes","eorare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/MeseriiData",formatter.format(ld) +"","succes","eorare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt",1000,"succes","eroare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HH.txt",50,"succes","eroare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii",0,"succes","eroare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Studii",0,"succes","eroare");
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Nume",s,"succes","eroare");
 
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton)
         {
+            String s = textField.getText();
+            System.out.println(s);
             this.dispose();
-        }
-        if(e.getSource()==myButton2)
-        {
-            this.dispose();
-
         }
     }
 }
+
 
 

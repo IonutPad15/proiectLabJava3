@@ -135,7 +135,7 @@ public class MeniuPrincipal extends CitireFisier {
         return labelData;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         MeniuPrincipal mp = MeniuPrincipal.getInstance();
         mp.getjFrame().setVisible(true);
         Thread1 r1 = new Thread1();
@@ -144,7 +144,7 @@ public class MeniuPrincipal extends CitireFisier {
         Thread t2 = new Thread(r2);
         t1.start();
         t2.start();
-    }
+    }*/
     public void start() {
         MeniuPrincipal mp = MeniuPrincipal.getInstance();
         mp.getjFrame().setVisible(true);
