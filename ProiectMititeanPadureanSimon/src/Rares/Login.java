@@ -11,6 +11,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.Vector;
 import javax.swing.*;
+
+import Ionut.GUI.MeniuPrincipal;
 import Ionut.classes.ScriereFisier;
 
 public class Login extends JFrame implements ActionListener
@@ -19,22 +21,24 @@ public class Login extends JFrame implements ActionListener
     JButton myButton =new JButton("START");
     JTextField textField= new JTextField();
     JTextField textFieldnume= new JTextField();
+    JLabel label= new JLabel();
     public Login()
     {
         panell=new MyPanel2();
-        textField.setBounds(750,500,500,170);
+        label.setText("Introduceti numele: ");
+        textField.setBounds(1100,500,300,120);
         textField.setPreferredSize(new Dimension(250,40));
         textField.setFont(new Font("Consolas",Font.PLAIN,35));
-        textField.setText("Introduceti numele: ");
-       // label.setBounds(0, 0, 500, 50);
-        //label.setFont(new Font(null, Font.PLAIN, 25));
-        //frame.add(label);
+        textField.setText("");
+        label.setBounds(890,470,500,170);
+        label.setFont(new Font(null, Font.PLAIN, 25));
+        this.add(label);
         //textField2.setPreferredSize(new Dimension(250,40));
         //textField.setText("username");
         //textField2.setText("password");
         ///f.setContentPane(new Login().panel1);
         this.setBackground(Color.white);
-        myButton.setBounds(100,160,200,40);
+        myButton.setBounds(120,160,200,40);
         myButton.setFocusable(false);
         myButton.addActionListener(this);
         //myButton2.setBounds(100,160,200,40);
@@ -71,7 +75,7 @@ public class Login extends JFrame implements ActionListener
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate ld = LocalDate.now();
         String s = textField.getText();
-        System.out.println(s);
+        //System.out.println(s);
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Data",formatter.format(ld) +"","succes","eorare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld) +"","succes","eorare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/MeseriiData",formatter.format(ld) +"","succes","eorare");
@@ -80,15 +84,15 @@ public class Login extends JFrame implements ActionListener
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii",0,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Studii",0,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Nume",s,"succes","eroare");
-
+        MeniuPrincipal.start();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton)
         {
-            String s = textField.getText();
-            System.out.println(s);
+            newgame();
             this.dispose();
+
         }
     }
 }

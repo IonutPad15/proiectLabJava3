@@ -1,5 +1,7 @@
 package Rares;
 
+import Ionut.GUI.MeniuPrincipal;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -53,8 +55,8 @@ public class StartGame extends JFrame implements ActionListener
         }
         if(e.getSource()==myButton2)
         {
+            MeniuPrincipal.start();
                 this.dispose();
-                Login login = new Login();
         }
 
     }

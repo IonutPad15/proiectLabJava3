@@ -145,7 +145,7 @@ public class MeniuPrincipal extends CitireFisier {
         t1.start();
         t2.start();
     }*/
-    public void start() {
+    public static void start() {
         MeniuPrincipal mp = MeniuPrincipal.getInstance();
         mp.getjFrame().setVisible(true);
         Thread1 r1 = new Thread1();
