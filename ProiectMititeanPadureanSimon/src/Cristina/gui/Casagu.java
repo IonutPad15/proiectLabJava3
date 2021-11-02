@@ -79,6 +79,7 @@ public class Casagu extends CitireFisier {
         jFrame.setResizable(false);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         enablebutoane(index);
+        labelNume.setText(mp.getLabelNume().getText());
         String s  = mp.getLabelData().getText();
         labelData.setText("");
         ImageIcon img = new ImageIcon(new ImageIcon("ProiectMititeanPadureanSimon/src/Ionut/resources/Hh.png").getImage().getScaledInstance(75,55, Image.SCALE_DEFAULT));

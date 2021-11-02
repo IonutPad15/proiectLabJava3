@@ -73,6 +73,7 @@ public class Studiigu extends CitireFisier {
         jFrame.setVisible(false);
         jFrame.setResizable(false);
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        labelNume.setText(mp.getLabelNume().getText());
         String s  = mp.getLabelData().getText();
         labelData.setText("");
         ImageIcon img = new ImageIcon(new ImageIcon("ProiectMititeanPadureanSimon/src/Ionut/resources/Hh.png").getImage().getScaledInstance(75,55, Image.SCALE_DEFAULT));
@@ -191,6 +192,10 @@ public class Studiigu extends CitireFisier {
     public JLabel getLabelHh()
     {
         return labelHh;
+    }
+    public JLabel getLabelNume()
+    {
+        return labelNume;
     }
     private boolean activare()
     {
