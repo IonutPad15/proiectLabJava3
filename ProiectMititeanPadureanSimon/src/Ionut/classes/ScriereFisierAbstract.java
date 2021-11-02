@@ -28,4 +28,5 @@ public abstract class ScriereFisierAbstract implements IScriereFisier {
             e.printStackTrace();
         }
     }
+    public abstract void scriereFisier(String numeFisier,int val, String mesaj_succes, String mesaj_eroare);
 }
