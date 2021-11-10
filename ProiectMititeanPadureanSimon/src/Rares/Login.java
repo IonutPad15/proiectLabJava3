@@ -18,7 +18,7 @@ import Ionut.classes.ScriereFisier;
 public class Login extends JFrame implements ActionListener
 {
     MyPanel2 panell;
-    JButton myButton =new JButton("START");
+    JButton myButton =new JButton("Next");
     JTextField textField= new JTextField();
     JTextField textFieldnume= new JTextField();
     JLabel label= new JLabel();
@@ -74,7 +74,6 @@ public class Login extends JFrame implements ActionListener
         ScriereFisier sc = new ScriereFisier();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate ld = LocalDate.now();
-        String s = textField.getText();
         //System.out.println(s);
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Data",formatter.format(ld) +"","succes","eorare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HomeData",formatter.format(ld) +"","succes","eorare");
@@ -83,15 +82,18 @@ public class Login extends JFrame implements ActionListener
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/HH.txt",50,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Meserii",0,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Studii",0,"succes","eroare");
-        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Nume",s,"succes","eroare");
+        //sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Nume",s,"succes","eroare");
         sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Home",0,"succes","eroare");
-        MeniuPrincipal.start();
+        String s = textField.getText();
+        sc.scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Nume",s,"succes","eroare");
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton)
         {
             newgame();
+            NewGame n = new NewGame();
+            n.getjFrame().setVisible(true);
             this.dispose();
 
         }

@@ -33,6 +33,7 @@ public class ThreadMinus extends CitireFisier implements Runnable{
     private LifeSimulator ls;
     int indexcasa;
     int indexhh;
+    private static boolean pentruhh ;
     public ThreadMinus()
     {
         meseriigui = Meseriigui.getInstance();
@@ -65,6 +66,7 @@ public class ThreadMinus extends CitireFisier implements Runnable{
         buton3 = casagui.getButon3();
         buton4 = casagui.getButon4();
         buton5 = casagui.getButon5();
+        pentruhh = false;
     }
     public void run()
     {
@@ -124,11 +126,33 @@ public class ThreadMinus extends CitireFisier implements Runnable{
             }
         }
     }
+    private int getScadereProcentHh()
+    {
+        if(indexcasa==0)
+        {
+            return 15;
+        }
+        if(indexcasa ==1)
+        {
+            return 12;
+        }
+        if(indexcasa == 2)
+        {
+            return 9;
+        }
+        if(indexcasa == 3)
+        {
+            return 6;
+        }
+        if(indexcasa == 4) return 3;
+        return 0;
+    }
     private void setProcentHh()
     {
         int hhtemp = Integer.parseInt(hhlabelMp.getText());
-        hhtemp -= 6;
-        if(hhtemp < 0)
+        int a = getScadereProcentHh();
+        hhtemp -= a;
+        if(hhtemp <= 0)
         {
             Meserie[] meseries = ls.getMeserii();
             String rezfinal = "Viata ta s-a incheiat! Ai strans "+bani+"lei, ai trait pana in "+formatter.format(ld)+

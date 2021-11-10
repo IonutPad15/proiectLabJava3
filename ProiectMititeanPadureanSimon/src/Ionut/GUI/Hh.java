@@ -105,6 +105,7 @@ public class Hh extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 int procent = _hh[0].getProcentHh();
                 crestereHh(procent, 0);
+                buton1.setEnabled(false);
             }
         });
         buton2.addActionListener(new ActionListener() {
@@ -112,6 +113,7 @@ public class Hh extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 int procent = _hh[1].getProcentHh();
                 crestereHh(procent, 1);
+                buton2.setEnabled(false);
             }
         });
         buton3.addActionListener(new ActionListener() {
@@ -119,6 +121,7 @@ public class Hh extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 int procent = _hh[2].getProcentHh();
                 crestereHh(procent, 2);
+                buton3.setEnabled(false);
             }
         });
         buton4.addActionListener(new ActionListener() {
@@ -126,6 +129,7 @@ public class Hh extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 int procent = _hh[3].getProcentHh();
                 crestereHh(procent, 3);
+                buton4.setEnabled(false);
             }
         });
         buton5.addActionListener(new ActionListener() {
@@ -133,6 +137,7 @@ public class Hh extends CitireFisier {
             public void actionPerformed(ActionEvent actionEvent) {
                 int procent = _hh[4].getProcentHh();
                 crestereHh(procent, 4);
+                buton5.setEnabled(false);
             }
         });
     }
@@ -241,5 +246,25 @@ public class Hh extends CitireFisier {
             labelbaniStudii.setText("" + bani);
             scriereFisier("ProiectMititeanPadureanSimon/src/Ionut/resources/Bani.txt", bani, "succes", "eroare");
         }
+    }
+    public JButton getButon1()
+    {
+        return buton1;
+    }
+
+    public JButton getButon2() {
+        return buton2;
+    }
+
+    public JButton getButon3() {
+        return buton3;
+    }
+
+    public JButton getButon4() {
+        return buton4;
+    }
+
+    public JButton getButon5() {
+        return buton5;
     }
 }

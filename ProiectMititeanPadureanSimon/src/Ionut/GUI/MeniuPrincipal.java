@@ -152,7 +152,14 @@ public class MeniuPrincipal extends CitireFisier {
         Thread t1 = new Thread(r1);
         ThreadMinus r2 = new ThreadMinus();
         Thread t2 = new Thread(r2);
+        t1.setDaemon(true);
+        t2.setDaemon(true);
         t1.start();
+        try {
+            Thread.sleep(80);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         t2.start();
     }
     public JLabel getLabelBani()
